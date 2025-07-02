@@ -21,10 +21,10 @@ app.get('/about', (req, res) => {
 });
 
 
-app.get('/api/message', (req, res) => {
-  res.json({ message: 'Hello from Node.js!' });
+app.get('/message', (req, res) => {
+  res.send("This is only for you , My One and Only, My Love, My Life, My Sweetheart, My Darling, My Angel, My Princess, My Queen, My Heart's Desire, My Soulmate, My Forever Love, My One True Love, My Beloved, My Treasure, My Joy, My Happiness, My Sunshine, My Light in the Dark, My Comforter, My Supporter, My Partner in Crime, My Best Friend, My Confidant, My Rock.");
 });
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server is running on http://localhost:${port}`);
 });
