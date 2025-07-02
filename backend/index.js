@@ -1,12 +1,21 @@
 import express from 'express';
-import dotenv from 'dotenv';
+import cors from 'cors';
+import mongoose from 'mongoose';
+
 const app = express();
-dotenv.config({
-    path: './.env'
+const port = 3000;
+
+
+// Middlewares
+app.use(cors());
+app.use(express.json());
+
+
+// Routes
+app.get('/api/message', (req, res) => {
+  res.json({ message: 'Hello from Node.js! Am I Changing ' });
 });
-app.get('/', (req, res) => {
-  res.send('Hello from backend! ');
-});
-app.listen(process.env.PORT, () => {
-  console.log(`Server is running on port at ${process.env.PORT}`);
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
 });
