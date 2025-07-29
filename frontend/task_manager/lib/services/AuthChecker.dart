@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-Future<void> signUp(String name, String email, String password) async {
+Future<bool> signUp(String name, String email, String password) async {
   final response = await http.post(
-    Uri.parse('http://10.0.2.2:3000/api/signup'),
+    Uri.parse('https://task-manager-server-lvzs.onrender.com/api/signUp'),
     headers: { "Content-Type": "application/json" },
     body: jsonEncode({
       "name": name,
@@ -11,8 +11,10 @@ Future<void> signUp(String name, String email, String password) async {
       "password": password,
     }),
   );
+  print('Status code: ${response.statusCode}');
+  print('Response body: ${response.body}');
 
-  print(response.body);
+  return response.statusCode == 201;
 }
 
 
