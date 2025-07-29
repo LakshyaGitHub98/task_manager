@@ -3,6 +3,7 @@ const app = require('./routes/app');
 const port = process.env.PORT  || 3000;
 const connectDB = require('./src/db');
 const loginRoutes = require('./routes/login');
+const signupRoutes = require('./routes/signup');
 const cors = require('cors');
 connectDB();
 
@@ -14,6 +15,8 @@ app.use(cors());
 app.get('/', (req, res) => {
   res.send('Hello World! updatetd');
 });
+
+app.post('/api/signup', signupRoutes);
 
 app.post('/api/login',loginRoutes);
 

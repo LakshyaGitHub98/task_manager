@@ -11,7 +11,7 @@ const signUp = async (req, res) => {
     }
 
     // 💾 Save user directly (no hashing for now)
-    const newUser = new User({
+    const newUser = new user({
       name,
       email,
       password, // 🔓 Plaintext — dev only!
